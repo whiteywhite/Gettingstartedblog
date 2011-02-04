@@ -1,0 +1,28 @@
+<h1>New post</h1>
+
+<%= render 'form' %>
+
+
+<div id="posts">
+  
+
+<% @posts.sort {|a,b| b.id <=> a.id}.each do |post| %>
+  <div class="post" >
+    
+    <h2><%= link_to post.title, post %></h2>
+    <p><%= post.content %></p>
+    <p>
+  	<b>Tags:</b> <%= join_tags(post) %></p>
+    <ul>
+    	<li><%= link_to 'Edit', edit_post_path(post) %></li>
+    	<li><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></li>
+    </ul>
+  </div>
+  <div class="box"> </div>
+  
+<% end %>
+</div>
+
+<br />
+
+
