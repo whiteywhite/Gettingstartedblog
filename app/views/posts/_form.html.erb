@@ -1,3 +1,4 @@
+<div id="form">
 <% @post.tags.build %>
 <%= form_for(@post) do |post_form| %>
   <% if @post.errors.any? %>
@@ -13,7 +14,7 @@
  
   <div class="field">
     <%= post_form.label :name %><br />
-    <%= post_form.text_field :name %>
+    <%= post_form.text_field :name, :value=>'Johannes' , :disabled => 'disabled' %>
   </div>
   <div class="field">
     <%= post_form.label :title %><br />
@@ -21,11 +22,11 @@
   </div>
   <div class="field">
     <%= post_form.label :content %><br />
-    <%= post_form.text_area :content %>
+    <%= post_form.text_area :content, :rows => 3 %>
   </div>
   <div class="field">
     <%= post_form.label :category %><br />
-    <%= post_form.text_field :category %>
+    <%= post_form.select(:category, options_for_select([['Thought', 1], ['Picture', 2], ['Link', 3]])) %>
   </div>
   <h2>Tags</h2>
   <%= render :partial => 'tags/form',
@@ -34,3 +35,4 @@
     <%= post_form.submit %>
   </div>
 <% end %>
+</div>
