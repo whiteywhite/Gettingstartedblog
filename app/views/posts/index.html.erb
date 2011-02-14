@@ -5,22 +5,44 @@
 
 <% @posts.sort {|a,b| b.id <=> a.id}.each do |post| %>
  <div class="box"> </div>
- <div class="post" >
-    
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= post.content %></p>
-    <p>
-  	<b>Tags:</b> <%= join_tags(post) %></p>
-  	<p>
-  	<b>Cat:</b> <%= post.category %></p>
-  	<p>
-  	<b>Object:</b> <%= post.inspect %></p>
-    <ul>
-    	<li><%= link_to 'Edit', edit_post_path(post) %></li>
-    	<li><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></li>
-    </ul>
-  </div>
  
+ 
+ <% if post.category == 1 || post.category > 3 #thought %>
+ 
+ 	<div class="post" >
+    
+    	<h2><%= post.title %></h2>
+    	<p><%= post.content %></p>
+    	<p><b>Tags:</b> <%= join_tags(post) %></p>
+    	<ul>
+    		<li><%= link_to 'Edit', edit_post_path(post) %></li>
+    		<li><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></li>
+    	</ul>
+  	</div>
+  	
+  <% elsif post.category == 2 #image %>	
+ 	<div class="post" >
+    
+    	<h2><%= post.title %></h2>
+    	<img src="<%= post.content %>" alt="<%= post.title %>">
+    	<p><b>Tags:</b> <%= join_tags(post) %></p>
+    	<ul>
+    		<li><%= link_to 'Edit', edit_post_path(post) %></li>
+    		<li><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></li>
+    	</ul>
+  	</div>
+  	
+  <% elsif post.category == 3 #link %>	
+  	<div class="post" >
+    
+    	<h2> <%= link_to post.title, post.content %></h2>
+    	<p><b>Tags:</b> <%= join_tags(post) %></p>
+    	<ul>
+    		<li><%= link_to 'Edit', edit_post_path(post) %></li>
+    		<li><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></li>
+    	</ul>
+  	</div>
+  <% end %>
   
 <% end %>
 </div>
