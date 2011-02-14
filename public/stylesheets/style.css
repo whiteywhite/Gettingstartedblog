@@ -33,12 +33,28 @@ div.field, div.actions {
 #form{
   background-color:#FFF;
   padding:15px;
-
+ 	box-shadow: 5px 5px 5px #000;
+	border-radius: 30px;
+    -moz-border-radius: 30px;
+	-moz-box-shadow: 5px 5px 5px #000;
+	-webkit-box-shadow: 5px 5px 5px #000;
 }
 
 
-.post{background-color:#FFF; padding:15px;}
-.box{width:100px;height:100px; background-color:#FFF; margin:0 auto;}
+.post{
+	background-color:#FFF; 
+	padding:15px;
+	box-shadow: 10px 10px 5px #000;
+	border-radius: 30px;
+    -moz-border-radius: 30px;
+	-moz-box-shadow: 5px 5px 5px #000;
+	-webkit-box-shadow: 5px 5px 5px #000;
+	}
+	
+.box{
+	width:100px;
+	height:50px; 
+	margin:0 auto;}
 
 
 .field_with_errors {
