@@ -13,6 +13,10 @@
     <p><%= post.content %></p>
     <p>
   	<b>Tags:</b> <%= join_tags(post) %></p>
+  	<p>
+  	<b>Cat:</b> <%= post.category %></p>
+  	<p>
+  	<b>Object:</b> <%= post.inspect %></p>
     <ul>
     	<li><%= link_to 'Edit', edit_post_path(post) %></li>
     	<li><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></li>
